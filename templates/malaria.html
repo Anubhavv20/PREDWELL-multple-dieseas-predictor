@@ -1,0 +1,68 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeWkrfVAFFH28TT1BKJVyQOSeb1AMyEMP-8w&usqp=CAU'); /* Replace 'background-image.jpg' with your image path */
+        background-size: cover;
+        background-position: center;
+        height: 100vh; /* Set the height to the full viewport height */
+        margin: 180px;
+        display: flex;
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+      }
+.card-body {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 100px;
+    
+}
+
+#blah {
+    border-radius: 10px;
+}
+</style>
+<script>
+    function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(500)
+                        .height(500);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+{% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+<div class="row" style="margin-bottom: 300px;">
+    <!-- <div class="col-md-3"></div> -->
+    <div class="col-md-20">
+        <div class="card card-body">
+            <center><h1 style="color:rgb(22, 1, 1);">Skin Cancer</h1></center>
+            <center><h3>Please upload the image</h3></center>
+           <form class="form-horizontal" action="{{ url_for('malariapredictPage') }}" method="POST" enctype="multipart/form-data">
+                <center>
+                    <input onchange="readURL(this);" type="file" name="image" placeholder="Upload Image">
+                    <br>
+                    <br>
+                    <img class="img-fluid" id="blah" src="#" alt="Uploaded image will appear here" />
+                    <br>
+                    <br>
+                    <input style="background-color: #4e0374" class="btn btn-info" type="submit">
+                </center>
+            </form>
+        </div>
+    </div>
+    <!-- <div class="col-md-3"></div> -->
+</div>
+{% endblock %}
+

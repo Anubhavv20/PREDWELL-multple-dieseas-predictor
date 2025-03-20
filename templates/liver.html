@@ -1,0 +1,103 @@
+{% extends 'main.html' %}
+{% block content %}
+
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://img.freepik.com/premium-photo/blurred-colorful-wallpaper-background_976742-179.jpg'); /* Replace 'background-image.jpg' with your image path */
+      background-size: cover;
+      background-position: center;
+      height: 100vh; /* Set the height to the full viewport height */
+      margin: 0;
+      display: flex;
+      align-items: center; /* Center vertically */
+      justify-content: center; /* Center horizontally */
+    }
+
+    form {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.5); /* Adjust the transparency as needed */
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    </style>
+    </head>
+    
+    <body>
+    
+      <form id="liverForm" action="{{ url_for('predictPage') }}" method="POST">
+        <h2>Liver Disease Prediction</h2><br>
+        <table>
+          <tr>
+            <td><label for="age">Age:</label></td>
+            <td><input type="text" id="age" name="age" placeholder="Enter Age"></td>
+            <td><label for="Total_Bilirubin">Total Bil:</label></td>
+            <td><input type="text" id="Total_Bilirubin" name="Total_Bilirubin" placeholder="Enter Total Bilirubin"></td>
+          </tr>
+          <tr>
+            <td><label for="Gender">Gender:</label></td>
+            <td><input type="text" id="Gender" name="Gender" placeholder="Male:0, Female:1 "></td>
+            <td><label for="Direct_Bilirubin">Direct_Bilirubin:</label></td>
+            <td><input type="text" id="Direct_Bilirubin" name="Direct_Bilirubin" placeholder="Enter Direct Bilirubin"></td>
+          </tr>
+          <tr>
+            <td><label for="Alkaline_Phosphotase">Alkaline_Phosphotase:</label></td>
+            <td><input type="text" id="Alkaline_Phosphotase" name="Alkaline_Phosphotase" placeholder="Enter Alkaline Phosphotase"></td>
+            <td><label for="alamine">Alamine:</label></td>
+            <td><input type="text" id="alamine" name="Albumin" placeholder="Enter Alamine"></td>
+          </tr>
+          <tr>
+            <td><label for="aspartate">Aspartate:</label></td>
+            <td><input type="text" id="aspartate" name="Aspartate_Aminotransferase" placeholder="Enter Aspartate"></td>
+            <td><label for="protein">Protein:</label></td>
+            <td><input type="text" id="protein" name="Total_Protiens" placeholder="Enter Protein"></td>
+          </tr>
+          <tr>
+            <td><label for="albumin">Albumin:</label></td>
+            <td><input type="text" id="albumin" name="Albumin" placeholder="Enter Albumin"></td>
+            <td><label for="ratio">Ratio:</label></td>
+            <td><input type="text" id="ratio" name="Albumin_and_Globulin_Ratio" placeholder="Enter Ratio"></td>
+          </tr>
+          <tr>
+            <td colspan="4"><input type="submit" value="Predict"></td>
+          </tr>
+        </table>
+      </form> 
+{% endblock %}

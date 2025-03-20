@@ -1,0 +1,110 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://img.freepik.com/premium-photo/blurred-colorful-wallpaper-background_976742-179.jpg'); /* Replace 'background-image.jpg' with your image path */
+      background-size: cover;
+      background-position: center;
+      height: 100vh; /* Set the height to the full viewport height */
+      margin: 0;
+      display: flex;
+      align-items: center; /* Center vertically */
+      justify-content: center; /* Center horizontally */
+    }
+
+    form {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.5); /* Adjust the transparency as needed */
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+</style>
+
+<form id="liverForm" action="{{ url_for('predictPage') }}" method="POST">
+  <h2>Liver Disease Prediction</h2><br>
+  <table>
+    <tr>
+      <td><label for="Bp">Bp:</label></td>
+      <td><input type="text" id="Bp" name="Bp" placeholder="Enter Blood Pressure"></td>
+      <td><label for="Sg">Sg:</label></td>
+      <td><input type="text" id="Sg" name="Sg" placeholder="Enter Specific Gravity"></td>
+    </tr>
+    <tr>
+      <td><label for="Al">Al:</label></td>
+      <td><input type="text" id="Al" name="Al" placeholder="Enter Albumin"></td>
+      <td><label for="Su">Su:</label></td>
+      <td><input type="text" id="Su" name="Su" placeholder="Enter Sugar"></td>
+    </tr>
+    <tr>
+      <!-- <td><label for="Rbc">Rbc:</label></td>
+      <td><input type="text" id="Rbc" name="Rbc" placeholder="Enter Red Blood Cells"></td> -->
+      <td><label for="Bu">Bu:</label></td>
+      <td><input type="text" id="Bu" name="Bu" placeholder="Enter Blood Urea"></td>
+    </tr>
+    <tr>
+      <td><label for="Sc">Sc:</label></td>
+      <td><input type="text" id="Sc" name="Sc" placeholder="Enter Serum Creatinine"></td>
+      <td><label for="Sod">Sod:</label></td>
+      <td><input type="text" id="Sod" name="Sod" placeholder="Enter Sodium"></td>
+    </tr>
+    <tr>
+      <td><label for="Pot">Pot:</label></td>
+      <td><input type="text" id="Pot" name="Pot" placeholder="Enter Potassium"></td>
+      <td><label for="Hemo">Hemo:</label></td>
+      <td><input type="text" id="Hemo" name="Hemo" placeholder="Enter Haemoglobin"></td>
+    </tr>
+    <tr>
+      <td><label for="Wbcc">Wbcc:</label></td>
+      <td><input type="text" id="Wbcc" name="Wbcc" placeholder="Enter White Blood Cell Count"></td>
+      <td><label for="Rbcc">Rbcc:</label></td>
+      <td><input type="text" id="Rbcc" name="Rbcc" placeholder="Enter Red Blood Cell Count"></td>
+    </tr>
+    <tr>
+      <td><label for="Htn">Htn:</label></td>
+      <td><input type="text" id="Htn" name="Htn" placeholder="Enter HyperTension"></td>
+    </tr>
+    <tr>
+      <td colspan="4"><input type="submit" value="Predict"></td>
+    </tr>
+  </table>
+</form> 
+{% endblock %}
